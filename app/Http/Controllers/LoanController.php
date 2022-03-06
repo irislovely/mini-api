@@ -36,12 +36,12 @@ class LoanController extends Controller
             $loan->user()->associate(Auth::user());
             $loan->save();
 
-            $today = Carbon::now();
-            $endDate = Carbon::now()->addMonths($request->term);
-            $differenceInWeeks = floor($today->diff($endDate)->days / 7);
+            // Count the number of weeks during the loan term, and set the weekly payment amount
+            $differenceInWeeks = self::calculateWeeks($request);
 
-            $weekly_payment_date = $today->addWeeks(1);
             $weekly_payment_amount = round($request->amount / $differenceInWeeks, 4);
+
+            $weekly_payment_date = Carbon::now()->addWeeks(1);
             $payment_amount_remaining = $request->amount;
             $payment_amount_paid = 0;
 
@@ -108,6 +108,13 @@ class LoanController extends Controller
             'message' => 'Loan retrieved successfully',
             'data' => new LoanResource($loan)
         ], 200);
+    }
+
+    private static function calculateWeeks($request)
+    {
+        $today = Carbon::now();
+        $endDate = Carbon::now()->addMonths($request->term);
+        return floor($today->diff($endDate)->days / 7);
     }
     
 }

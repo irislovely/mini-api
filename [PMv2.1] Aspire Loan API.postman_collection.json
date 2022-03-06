@@ -1,0 +1,673 @@
+{
+	"info": {
+		"_postman_id": "1b7422e6-6a7c-48fb-90be-1bb81f440dfc",
+		"name": "Aspire Loan API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "POST Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "email",
+							"value": "admin@test.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "password",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost/api/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"api",
+						"login"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "POST Login",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "admin@test.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "password",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost/api/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"api",
+								"login"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "localhost"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 06 Mar 2022 20:22:53 GMT"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 06 Mar 2022 20:22:53 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.1.3"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "59"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": true,\n    \"message\": \"Logged in successfully\",\n    \"access_token\": \"2|jlnrOF16MPgkONKVeVIKOyO0iR926EP9uw1OZl52\",\n    \"token_type\": \"Bearer\"\n}"
+				}
+			]
+		},
+		{
+			"name": "GET User",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 2|jlnrOF16MPgkONKVeVIKOyO0iR926EP9uw1OZl52",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost/api/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"api",
+						"users"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "GET User",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer 2|jlnrOF16MPgkONKVeVIKOyO0iR926EP9uw1OZl52",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost/api/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"api",
+								"users"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "localhost"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 06 Mar 2022 20:23:39 GMT"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 06 Mar 2022 20:23:38 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.1.3"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "59"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": {\n        \"id\": 82,\n        \"name\": \"Miss Maida Buckridge DVM\",\n        \"email\": \"admin@test.com\",\n        \"email_verified_at\": \"2022-03-06T18:43:47.000000Z\",\n        \"created_at\": \"2022-03-06T18:43:47.000000Z\",\n        \"updated_at\": \"2022-03-06T18:43:47.000000Z\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "POST Add Loan",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 2|jlnrOF16MPgkONKVeVIKOyO0iR926EP9uw1OZl52",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"amount\": 11000,\r\n    \"term\": 6\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost/api/loan",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"api",
+						"loan"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "POST Add Loan",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer 2|jlnrOF16MPgkONKVeVIKOyO0iR926EP9uw1OZl52",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"amount\": 11000,\r\n    \"term\": 6\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost/api/loan",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"api",
+								"loan"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "localhost"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 06 Mar 2022 20:24:03 GMT"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 06 Mar 2022 20:24:03 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.1.3"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "58"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": true,\n    \"message\": \"Loan created successfully\",\n    \"data\": {\n        \"id\": 8,\n        \"amount\": 11000,\n        \"term\": 6,\n        \"approval\": 0,\n        \"payment\": {\n            \"id\": 8,\n            \"weekly_payment_date\": \"2022-03-13 20:24:03\",\n            \"weekly_payment_amount\": 423.0769,\n            \"payment_amount_paid\": 0,\n            \"payment_amount_remaining\": 11000\n        },\n        \"user\": {\n            \"id\": 82,\n            \"name\": \"Miss Maida Buckridge DVM\",\n            \"email\": \"admin@test.com\",\n            \"email_verified_at\": \"2022-03-06T18:43:47.000000Z\",\n            \"created_at\": \"2022-03-06T18:43:47.000000Z\",\n            \"updated_at\": \"2022-03-06T18:43:47.000000Z\"\n        }\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "POST Admin Loan Approval",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 2|jlnrOF16MPgkONKVeVIKOyO0iR926EP9uw1OZl52",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"approval\": 1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost/api/loan/8/approval",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"api",
+						"loan",
+						"8",
+						"approval"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "POST Admin Loan Approval",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer 2|jlnrOF16MPgkONKVeVIKOyO0iR926EP9uw1OZl52",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"approval\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost/api/loan/8/approval",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"api",
+								"loan",
+								"8",
+								"approval"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "localhost"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 06 Mar 2022 20:24:27 GMT"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 06 Mar 2022 20:24:27 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.1.3"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "57"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": true,\n    \"message\": \"Loan approval updated successfully\",\n    \"data\": {\n        \"id\": 8,\n        \"amount\": 11000,\n        \"term\": 6,\n        \"approval\": 1,\n        \"payment\": {\n            \"id\": 8,\n            \"weekly_payment_date\": \"2022-03-13 20:24:03\",\n            \"weekly_payment_amount\": 423.0769,\n            \"payment_amount_paid\": 0,\n            \"payment_amount_remaining\": 11000\n        },\n        \"user\": {\n            \"id\": 82,\n            \"name\": \"Miss Maida Buckridge DVM\",\n            \"email\": \"admin@test.com\",\n            \"email_verified_at\": \"2022-03-06T18:43:47.000000Z\",\n            \"created_at\": \"2022-03-06T18:43:47.000000Z\",\n            \"updated_at\": \"2022-03-06T18:43:47.000000Z\"\n        }\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "POST Loan Weekly Payment",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 2|jlnrOF16MPgkONKVeVIKOyO0iR926EP9uw1OZl52",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"amount\": 423.0769\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost/api/loan/8/payment",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"api",
+						"loan",
+						"8",
+						"payment"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "POST Loan Weekly Payment",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer 2|jlnrOF16MPgkONKVeVIKOyO0iR926EP9uw1OZl52",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"amount\": 423.0769\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost/api/loan/8/payment",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"api",
+								"loan",
+								"8",
+								"payment"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "localhost"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 06 Mar 2022 20:25:38 GMT"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 06 Mar 2022 20:25:38 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.1.3"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "59"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": true,\n    \"message\": \"Loan repaid successfully\",\n    \"data\": {\n        \"id\": 8,\n        \"amount\": 11000,\n        \"term\": 6,\n        \"approval\": 1,\n        \"payment\": {\n            \"id\": 8,\n            \"weekly_payment_date\": \"2022-03-20T20:24:03.000000Z\",\n            \"weekly_payment_amount\": 423.0769,\n            \"payment_amount_paid\": 423.0769,\n            \"payment_amount_remaining\": 10576.9231\n        },\n        \"user\": {\n            \"id\": 82,\n            \"name\": \"Miss Maida Buckridge DVM\",\n            \"email\": \"admin@test.com\",\n            \"email_verified_at\": \"2022-03-06T18:43:47.000000Z\",\n            \"created_at\": \"2022-03-06T18:43:47.000000Z\",\n            \"updated_at\": \"2022-03-06T18:43:47.000000Z\"\n        }\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "GET Loan Details",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 2|jlnrOF16MPgkONKVeVIKOyO0iR926EP9uw1OZl52",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost/api/loan/8",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"api",
+						"loan",
+						"8"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "GET Loan Details",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer 2|jlnrOF16MPgkONKVeVIKOyO0iR926EP9uw1OZl52",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost/api/loan/8",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"api",
+								"loan",
+								"8"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "localhost"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 06 Mar 2022 20:26:00 GMT"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 06 Mar 2022 20:26:00 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.1.3"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "58"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": true,\n    \"message\": \"Loan retrieved successfully\",\n    \"data\": {\n        \"id\": 8,\n        \"amount\": 11000,\n        \"term\": 6,\n        \"approval\": 1,\n        \"payment\": {\n            \"id\": 8,\n            \"weekly_payment_date\": \"2022-03-20 20:24:03\",\n            \"weekly_payment_amount\": 423.0769,\n            \"payment_amount_paid\": 423.0769,\n            \"payment_amount_remaining\": 10576.9231\n        },\n        \"user\": {\n            \"id\": 82,\n            \"name\": \"Miss Maida Buckridge DVM\",\n            \"email\": \"admin@test.com\",\n            \"email_verified_at\": \"2022-03-06T18:43:47.000000Z\",\n            \"created_at\": \"2022-03-06T18:43:47.000000Z\",\n            \"updated_at\": \"2022-03-06T18:43:47.000000Z\"\n        }\n    }\n}"
+				}
+			]
+		}
+	]
+}

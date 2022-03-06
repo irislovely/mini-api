@@ -25,20 +25,8 @@ class LoanPaymentController extends Controller
         }
 
         if ($loan->approval) {
-            $loanPayment = $loan->loanPayment;
-
-            if ($loanPayment->payment_amount_remaining > $request->amount) {
-                $loanPayment->payment_amount_remaining -= $request->amount;
-                $loanPayment->payment_amount_paid += $request->amount;
-            } else {
-                $loanPayment->weekly_payment_amount = 0;
-                $loanPayment->payment_amount_remaining = 0;
-                $loanPayment->payment_amount_paid = $loanPayment->weekly_payment_amount;
-            }
-    
-            $loanPayment->weekly_payment_date = Carbon::parse($loanPayment->weekly_payment_date)->addWeeks(1);
-    
-            $loanPayment->save();
+            
+            self::paymentCalculation($loan, $request);
     
             return response()->json([
                 'success'=> true,
@@ -52,5 +40,25 @@ class LoanPaymentController extends Controller
                 'data' => new LoanResource($loan)
             ], 422);
         }        
+    }
+
+    private static function paymentCalculation(Loan $loan,  Request $request)
+    {
+        $loanPayment = $loan->loanPayment;
+
+        if ($loanPayment->payment_amount_remaining > $request->amount) {
+            // If the amount is less than the remaining amount, then update the remaining amount
+            $loanPayment->payment_amount_remaining -= $request->amount;
+            $loanPayment->payment_amount_paid += $request->amount;
+        } else {
+            // If the amount is greater than the remaining amount, the debt is paid off
+            $loanPayment->weekly_payment_amount = 0;
+            $loanPayment->payment_amount_remaining = 0;
+            $loanPayment->payment_amount_paid = $loanPayment->weekly_payment_amount;
+        }
+
+        $loanPayment->weekly_payment_date = Carbon::parse($loanPayment->weekly_payment_date)->addWeeks(1);
+
+        $loanPayment->save();
     }
 }
