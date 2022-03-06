@@ -23,7 +23,7 @@ The step to start this project on your machine:
 3. The first time the application is up, all table migrations will be called, and also the seeder for Users table.
 
 ## API Endpoints:
-The POSTMAN collection has more details of what parameters are sent with each endpoint.
+The POSTMAN collection has more details of what parameters are sent with each endpoint (**Aspire Loan API.postman_collection.json**).
 - POST **/api/login**: Log user in with email/password
 - GET **/api/users**: Get user info
 - POST **/api/loan**: Apply for a new loan with the logged in user
